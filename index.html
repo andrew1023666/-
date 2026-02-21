@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>終極圈圈叉叉 - 現代對戰版</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Ultimate Tic-Tac-Toe</h1>
+        
+        <div class="mode-selector">
+            <button id="local-mode-btn" class="active">本地遊玩</button>
+            <button id="online-mode-btn">線上對戰</button>
+        </div>
+
+        <div id="connection-panel" class="connection-box" style="display: none;">
+            <div class="id-row">
+                <span>您的 ID: <b id="my-peer-id">讀取中...</b></span>
+            </div>
+            <div class="input-group">
+                <input type="text" id="join-id" placeholder="貼上對手 ID">
+                <button id="connect-btn">連線</button>
+            </div>
+        </div>
+
+        <div id="status">輪到 O 下棋 (任意區域)</div>
+
+        <div class="ultimate-board" id="ultimate-board"></div>
+
+        <div class="footer">
+            <button id="rules-btn" class="secondary-btn">遊戲規則</button>
+            <button onclick="resetGame()" class="secondary-btn">重置遊戲</button>
+        </div>
+    </div>
+
+    <div id="rules-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>📜 遊戲規則</h2>
+            <p>1. 大盤由 9 個小區組成。</p>
+            <p>2. 你在小區點的位置，會決定對手下一個必須去的大區。</p>
+            <p>3. 小區三連線即佔領該區，大區三連線則贏得終極勝利。</p>
+            <p>4. 若被送往的區域已滿，則可自由落子。</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
